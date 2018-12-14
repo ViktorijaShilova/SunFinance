@@ -14,7 +14,5 @@ public class FoodTest {
         homePage.closeCookie();
         FoodPage foodPage = homePage.getItemByName("ЕДА");
         RecipePage recipePage = foodPage.getRecipe("Острый соус из апельсинов");
-//        IngredientPage ingredientPage = recipePage.
-
     }
 }

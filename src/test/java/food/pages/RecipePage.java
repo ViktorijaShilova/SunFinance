@@ -10,14 +10,13 @@ public class RecipePage {
     BaseFunc baseFunc;
 
     private final By INGREDIENTS = By.xpath(".//a[@itemprop = 'recipeIngredient']");
-
+    private final By NAME = By.xpath(".//h1[@itemprop ='name']");
 
     public RecipePage (BaseFunc baseFunc) {
-
         this.baseFunc = baseFunc;
     }
 
-    public IngredientPage recipeIngredients(String name) {
+    public List<String> recipeIngredients() {
         List<WebElement> ingredients = baseFunc.getElements(INGREDIENTS);
         List<String> ingredient_list = new ArrayList<String>();
 
@@ -25,7 +24,19 @@ public class RecipePage {
             ingredient_list.add(ingredients.get(i).getAttribute("href"));
         }
 
-
-        }
+        return ingredient_list;
     }
 
+    public IngredientPage getIngredientPage() {
+        List<String> recipeIngr = recipeIngredients();
+        recipeIngr.get(0);
+
+        return new IngredientPage(baseFunc);
+
+    }
+
+    public String recipeName() {
+        return baseFunc.getElement(NAME).getText();
+    }
+
+}

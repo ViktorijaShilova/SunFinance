@@ -8,7 +8,7 @@ import java.util.List;
 public class HomePage {
     BaseFunc baseFunc;
 
-    private final By COOKIE = By.xpath(".//a[@class = 'close cookie']");
+    private final By COOKIE = By.id("cookiePolicyAccept");
     private final By NAME = By.xpath(".//span");
     private final By HEADER = By.id("quick-site-section-navigation-inner");
 
@@ -30,6 +30,4 @@ public class HomePage {
         }
         return null;
     }
-
-
 }
