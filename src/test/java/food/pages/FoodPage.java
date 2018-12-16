@@ -29,7 +29,7 @@ public class FoodPage {
 
     public RecipePage clickOnRecipe() {
         List<String> allRecipes = getRecipe();
-        baseFunc.goToUrl(allRecipes.get(7));
+        baseFunc.goToUrl(allRecipes.get(5));
 
         return new RecipePage(baseFunc);
     }

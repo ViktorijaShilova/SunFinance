@@ -1,6 +1,7 @@
 package food.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -13,11 +14,17 @@ public class HomePage {
     private final By HEADER = By.id("quick-site-section-navigation-inner");
 
     public HomePage(BaseFunc baseFunc) {
+
         this.baseFunc = baseFunc;
     }
 
     public void closeCookie() {
-        baseFunc.getElement(COOKIE).click();
+        try {
+            baseFunc.waitForElement(COOKIE);
+            baseFunc.getElement(COOKIE).click();
+        } catch (TimeoutException error) {
+            System.out.println(error);
+        }
     }
 
     public FoodPage getItemByName(String name) {
